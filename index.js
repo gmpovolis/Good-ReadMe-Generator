@@ -1,30 +1,7 @@
-// // array of questions for user
-// const questions = [
-
-// ];
-
-// // function to write README file
-// function writeToFile(fileName, data) {
-// }
-
-// // function to initialize program
-// function init() {
-
-// }
-
-
-  
-
-// // function call to initialize program
-// init();
-
-
-
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const generateMarkdown = require("./utils/generateMarkdown");
-const Choices = require("inquirer/lib/objects/choices");
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -42,8 +19,8 @@ function promptUser() {
     },
     {
         type: "input",
-        name: "project",
-        message: "What is your project's name?"
+        name: "title",
+        message: "What is the title of your project?"
     },
     {
         type: "input",
@@ -80,11 +57,28 @@ function promptUser() {
 }
 
 async function init() {
-  console.log("hi")
   try {
     const answers = await promptUser();
-
-    const readMe = generateMarkdown(answers);
+    const badge = function(answers){
+        switch (answers.license){
+            case "MIT":
+                return `![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)\n`;
+                break;
+            case "APACHE 2.0":
+                return `![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)\n`;
+                break;
+            case "GPL 3.0":
+                return `![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)\n`;
+                break;
+            case "BSD 3":
+                return `![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)\n`;
+                break;
+            default:
+                return ``;
+                break;
+        }
+    }
+    const readMe = badge(answers)+generateMarkdown(answers);
 
     await writeFileAsync("generatedREADME.md", readMe);
 
