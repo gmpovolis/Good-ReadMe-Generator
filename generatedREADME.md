@@ -1,8 +1,9 @@
+![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 # Good-README-Generator
 
   # Description
 
-  Creates a simple README.md page
+  Creates a basic README.md file
 
   ## Table of Contents
 
@@ -28,13 +29,15 @@
 
   ## Usage
 
-  Install inquirer using NPM
+  Install the unquirer using NPM
 
-  
+  ## License
+
+  APACHE 2.0
   
   ## Contributing
 
-  Please fork the repo
+  To contribute please fork the repo
 
   ## Tests
 
