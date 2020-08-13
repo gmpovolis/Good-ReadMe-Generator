@@ -3,7 +3,7 @@
 
   # Description
 
-  Creates a basic README.md file
+  Generates a professional README.md
 
   ## Table of Contents
 
@@ -29,7 +29,7 @@
 
   ## Usage
 
-  Install the unquirer using NPM
+  Install the inquirer depedency using NPM
 
   ## License
 
@@ -37,7 +37,7 @@
   
   ## Contributing
 
-  To contribute please fork the repo
+  Please fork the repo
 
   ## Tests
 
